@@ -208,5 +208,56 @@ Example:
 
 📝[Full Source EC](ExecutionContext/ExecutionContext.js)
 
+## Classes And Prototypes
+
+- Xét ví dụ sau ở [Prtotype_Chain.js](Classes_And_Prototypes/Prototype_Chain.js) => Cả 3 ví dụ giống nhau về bản chất, chỉ là càng về sau cú pháp càng ngắn gọn và dễ sử dụng hơn.
+
+- Function là một object.
+
+```js
+
+prototype: {
+    construcor: function(){}
+}
+```
+
+- `this`: một function return this
+
+```js
+this:{
+    'arguments',
+    '__proto__'
+}
+```
+
+#### Prototypes Chain
+
+- Các prototype được chain(nối) với nhau tạo thành mỗi chuối prototype link với nhau. Nên một biến sẽ được lookup thông qua prototypes. Tên của nó là __proto__ hoặc [[Prototype]]
+
+- Khi function trả về 1 tham chiếu thì biến nào
+nhận giá trị đó cũng sẽ có tham chiếu luôn
+được gọi là __proto__. Example:
+
+```js
+function userCreator (name, score) {
+    const newUser = Object.create(userFunctionStore) // Định nghĩa prototype của object newUser
+    newUser.name = name;
+    newUser.score = score;
+    return newUser
+}
+
+const userFunctionStore = {
+    increment: function () {
+        this.score++;
+    },
+    login: function () { console.log('Logged in'); }
+}
+
+const user1 = userCreator('Will', 3);
+const user2 = userCreator("Tim", 5);
+
+user1.increment(); // ref to userFunctionStore
+```
+
 * * *
 

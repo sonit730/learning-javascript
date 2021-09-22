@@ -54,20 +54,20 @@
 
 //Scope stack in the lexical environsment
 {
-    // var apple = 'global apple';
-    // let banana = 'global banana';
+    var apple = 'global apple';
+    let banana = 'global banana';
 
-    // {
-    //     let banana = 'block banana';
-    //     var grape = 'global grape';
-    //     let orange = 'block orange';
-    //     console.log(apple); //global apple
-    //     console.log(banana); //block banana
-    // }
+    {
+        let banana = 'block banana';
+        var grape = 'global grape';
+        let orange = 'block orange';
+        console.log(apple); //global apple
+        console.log(banana); //block banana
+    }
 
-    // console.log(banana); //global banana
-    // console.log(grape); //undefinded
-    // console.log(orange); //not defined
+    console.log(banana); //global banana
+    console.log(grape); //undefinded
+    console.log(orange); //not defined
 }
 
 //Lexical scope as static scope
